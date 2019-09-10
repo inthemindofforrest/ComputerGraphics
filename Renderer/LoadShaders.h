@@ -11,6 +11,7 @@ class OBJ
 {
 	std::string Input;
 	tinyobj::attrib_t Att;
+	std::vector<tinyobj::shape_t> shapes;
 	std::vector<tinyobj::material_t> Mat;
 
 	std::string Err;

@@ -25,7 +25,7 @@ int main()
 
 
 	OBJ Object;
-	Object.init("models/Bamboo.obj");
+	Object.init("models/House1.obj");
 
 
 	std::string BasicVert = ReadShader("Shaders/ShaderText.txt");
@@ -40,7 +40,7 @@ int main()
 	glm::mat4 CamView = glm::lookAt(glm::vec3(0, 0, -250), glm::vec3(0, 50, 0), glm::vec3(0, 1, 0));
 
 
-	texture Cube = loadTexure("Texture/Bamboo.png");
+	texture Cube = loadTexure("Texture/House1.png");
 
 
 	SetUniform(BasicShader, 0, CamProj);
@@ -57,7 +57,7 @@ int main()
 
 		SetUniform(BasicShader, 2, Model);
 
-		Model = glm::rotate(Model, glm::radians(.1f), glm::vec3(0, .1f, 0));
+		Model = glm::rotate(Model, glm::radians(1.f), glm::vec3(0, .1f, 0));
 
 		Draw(BasicShader, Object.MyGeo);
 	}

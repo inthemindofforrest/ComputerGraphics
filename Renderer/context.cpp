@@ -23,6 +23,10 @@ bool Context::Init(int _width, int _height, const char * _title)
 	std::cout << "GLSL: " << (const char *)glGetString(GL_SHADING_LANGUAGE_VERSION) << "\n";
 
 	glClearColor(0.25f, 0.25f, 0.25f, 1.0f);//Color screen is set to when Clear Screen
+
+	glEnable(GL_BLEND);
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_CULL_FACE);
 	
 	return true;
 }

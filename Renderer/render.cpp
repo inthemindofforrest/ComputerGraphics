@@ -108,10 +108,18 @@ void Draw(const shader & _shad, const geometry & _geo)
 	//Draw
 	glDrawElements(GL_TRIANGLES, _geo.size, GL_UNSIGNED_INT, 0);
 }
-
 void SetUniform(const shader & _shad, GLuint _location, const glm::mat4 & _value)
 {
 	glProgramUniformMatrix4fv(_shad.Program, _location, 1, GL_FALSE, glm::value_ptr(_value));
+}
+void SetUniform(const shader &_shad, GLuint _location, const glm::vec3 &_value)
+{
+	glProgramUniform3fv(_shad.Program, _location, 1, glm::value_ptr(_value));
+}
+
+void SetUniform(const shader &_shad, GLuint _location, const glm::vec4 &_value)
+{
+	glProgramUniform4fv(_shad.Program, _location, 1, glm::value_ptr(_value));
 }
 
 void SetUniform(const shader & _shad, GLuint _location, const texture & _value, int _textureSlot)

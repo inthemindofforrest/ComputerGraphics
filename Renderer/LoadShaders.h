@@ -7,6 +7,8 @@
 #include <string.h>
 #include "tobjl/tiny_obj_loader.h"
 
+#include "math.h"
+
 class OBJ
 {
 	std::string Input;

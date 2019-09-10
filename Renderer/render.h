@@ -62,6 +62,12 @@ struct texture
 	unsigned int width, height, channels;
 };
 
+struct light
+{
+	glm::vec3 direction;
+	glm::vec4 color;
+};
+
 geometry MakeGeometry(vertex * _verts, size_t _vertCount, unsigned * _indices, size_t _indxCount);
 
 void FreeGeometry(geometry &_geo);
@@ -73,6 +79,8 @@ void FreeShader(shader &_shad);
 void Draw(const shader &_shad, const geometry &_geo);
 
 void SetUniform(const shader &_shad, GLuint _location, const glm::mat4 &_value);
+void SetUniform(const shader &_shad, GLuint _location, const glm::vec3 &_value);
+void SetUniform(const shader &_shad, GLuint _location, const glm::vec4 &_value);
 void SetUniform(const shader &_shad, GLuint _location, const texture &_value, int _textureSlot);
 
 texture MakeTexture(unsigned int _width, unsigned int _height, unsigned int _channels, const unsigned char *_pixels/*byte data*/);

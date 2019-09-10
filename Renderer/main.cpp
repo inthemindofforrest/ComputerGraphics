@@ -12,7 +12,7 @@ int main()
 	Game.Init(640, 480, "Source3");
 
 	OBJ Object;
-	Object.init("models/Girl.obj");
+	Object.init("models/Bamboo.obj");
 
 
 	std::string BasicVert = ReadShader("Shaders/ShaderText.txt");
@@ -24,10 +24,10 @@ int main()
 	glm::mat4 Model = glm::identity<glm::mat4>();
 
 	glm::mat4 CamProj = glm::perspective(glm::radians(45.0f), 640.0f / 480.0f, 0.1f, 1000.0f);
-	glm::mat4 CamView = glm::lookAt(glm::vec3(0, 0, -100), glm::vec3(0, 25, 0), glm::vec3(0, 1, 0));
+	glm::mat4 CamView = glm::lookAt(glm::vec3(0, 0, -200), glm::vec3(0, 50, 0), glm::vec3(0, 1, 0));
 
 
-	texture Cube = loadTexure("Texture/Girl.png");
+	texture Cube = loadTexure("Texture/Bamboo.png");
 
 	light sun;
 	sun.direction = glm::vec4{ 0,-1, 1,1 };

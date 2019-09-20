@@ -12,11 +12,11 @@ int main()
 	Game.Init(640, 480, "Source3");
 
 	OBJ Object;
-	Object.init("models/Bamboo.obj");
+	Object.init("Resources/models/Bamboo.obj");
 
 
-	std::string BasicVert = ReadShader("Shaders/ShaderText.txt");
-	std::string BasicFrag = ReadShader("Shaders/FragText.txt");
+	std::string BasicVert = ReadShader("Resources/Shaders/ShaderText.txt");
+	std::string BasicFrag = ReadShader("Resources/Shaders/FragText.txt");
 
 
 	shader BasicShader = MakeShader(BasicVert.c_str(), BasicFrag.c_str());
@@ -27,7 +27,7 @@ int main()
 	glm::mat4 CamView = glm::lookAt(glm::vec3(0, 0, -200), glm::vec3(0, 50, 0), glm::vec3(0, 1, 0));
 
 
-	texture Cube = loadTexure("Texture/Bamboo.png");
+	texture Cube = loadTexure("Resources/Texture/Bamboo.png");
 
 	light sun;
 	sun.direction = glm::vec4{ 0,-1, 1,1 };

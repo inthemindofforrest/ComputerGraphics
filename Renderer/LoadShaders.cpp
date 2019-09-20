@@ -38,31 +38,34 @@ void OBJ::init(std::string _ObjName)
 	if (!ret)
 		exit(1);
 
-	// Loop over shapes
+	// Loop shapes
 	for (size_t s = 0; s < shapes.size(); s++)
 	{
-		// Loop over faces(polygon)
+		// Loop faces
 		size_t index_offset = 0;
 
 		for (size_t Face = 0; Face < shapes[s].mesh.num_face_vertices.size(); Face++)
 		{
 			int fv = shapes[s].mesh.num_face_vertices[Face];
-			// Loop over vertices in the face.
+			// Loop vertices in the face.
 			for (size_t Ver = 0; Ver < fv; Ver++)
 			{
-				// access to vertex
 				tinyobj::index_t idx = shapes[s].mesh.indices[index_offset + Ver];
+				//Get three vertices
 				tinyobj::real_t vx = Att.vertices[3 * idx.vertex_index + 0];
 				tinyobj::real_t vy = Att.vertices[3 * idx.vertex_index + 1];
 				tinyobj::real_t vz = Att.vertices[3 * idx.vertex_index + 2];
 
+				//Get the normals for the three verticies
 				tinyobj::real_t nx = Att.normals[3 * idx.normal_index + 0];
 				tinyobj::real_t ny = Att.normals[3 * idx.normal_index + 1];
 				tinyobj::real_t nz = Att.normals[3 * idx.normal_index + 2];
 
+				//Get the tex coord
 				tinyobj::real_t tx = Att.texcoords[2 * idx.texcoord_index + 0];
 				tinyobj::real_t ty = Att.texcoords[2 * idx.texcoord_index + 1];
 
+				//Push it all to make the model
 				cachedVertices.push_back({ {vx, vy, vz, 1}, {nx, ny, nz, 0}, {tx, ty} });
 				cachedIndices.push_back(3 * Face + Ver);
 			}
